@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Function Plotter BD</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/logic.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Function Plotter BD</h1>
+    <p class="tagline" data-i18n="tagline">Graph maths functions, instantly — no account, no server.</p>
+  </div>
+  <button id="langBtn" type="button">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
+</header>
+<main>
+  <p class="muted" id="sampleNote" data-i18n="sampleNote">Demo functions are preloaded so you can see a graph at once; delete them and type your own.</p>
+
+  <section class="card">
+    <h2 data-i18n="functions">Functions</h2>
+    <p class="muted" data-i18n="fnHint">Type like 2x, x^2-4, sin(x). Use x, pi, e. log = base 10, ln = natural.</p>
+    <div id="fnRows"></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="view">View</h2>
+    <div class="view-row">
+      <label><span data-i18n="xmin">X min</span> <input id="viewMin" type="number" value="-10" step="any"></label>
+      <label><span data-i18n="xmax">X max</span> <input id="viewMax" type="number" value="10" step="any"></label>
+      <button id="applyView" type="button" data-i18n="apply">Apply</button>
+    </div>
+    <div class="btn-row">
+      <button id="zoomIn" type="button" data-i18n="zoomIn">Zoom in</button>
+      <button id="zoomOut" type="button" data-i18n="zoomOut">Zoom out</button>
+      <button id="panLeft" type="button" data-i18n="panLeft">Pan left</button>
+      <button id="panRight" type="button" data-i18n="panRight">Pan right</button>
+      <button id="resetView" type="button" data-i18n="resetView">Reset view</button>
+    </div>
+    <p class="err" id="viewErr"></p>
+    <canvas id="plot" width="900" height="540" aria-label="Function graph"></canvas>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="trace">Trace</h2>
+    <p class="muted" data-i18n="traceHint">Move the slider or click the graph to read values.</p>
+    <input id="traceSlider" type="range" min="0" max="400" value="240" aria-label="Trace position">
+    <p><span id="traceX">x = 2.00</span></p>
+    <div id="traceReadout"></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="analysis">Analysis (first enabled function)</h2>
+    <div id="analysisBox"></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="table">Value table</h2>
+    <div id="valueTable" class="table-wrap"></div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="presets">Presets</h2>
+    <div class="view-row">
+      <select id="presetSel" aria-label="Preset function">
+        <option value="x^2">x^2</option>
+        <option value="x^2-4">x^2-4</option>
+        <option value="sin(x)">sin(x)</option>
+        <option value="cos(x)">cos(x)</option>
+        <option value="1/x">1/x</option>
+        <option value="2^x">2^x</option>
+        <option value="abs(x)">abs(x)</option>
+        <option value="sqrt(x)">sqrt(x)</option>
+        <option value="x^3-3*x">x^3-3x</option>
+        <option value="exp(-x^2)">exp(-x^2)</option>
+      </select>
+      <button id="loadPreset" type="button" data-i18n="presetApply">Load preset</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="data">My data</h2>
+    <div class="btn-row">
+      <button id="exportBtn" type="button" data-i18n="exportBtn">Export JSON</button>
+      <label class="file-label"><span data-i18n="importBtn">Import JSON</span>
+        <input id="importFile" type="file" accept="application/json">
+      </label>
+    </div>
+    <div class="view-row">
+      <label><span data-i18n="erasePrompt">Type DELETE to erase everything:</span>
+        <input id="eraseInput" type="text" placeholder="DELETE"></label>
+      <button id="eraseBtn" type="button" data-i18n="eraseBtn">Erase all</button>
+    </div>
+    <p id="dataMsg"></p>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">Offline tool. Graphs are computed in your browser from the formulas you type; log means base-10 and ln means natural log. Not a substitute for classroom teaching — check results for exams.</p>
+  </footer>
+</main>
+</body>
+</html>

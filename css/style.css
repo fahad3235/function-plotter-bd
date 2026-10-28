@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f1f5f9; color: #0f172a; }
+.topbar { background: #1e3a8a; color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.topbar h1 { margin: 0; font-size: 24px; }
+.tagline { margin: 4px 0 0; color: #dbeafe; }
+.topbar button { background: #fff; color: #1e3a8a; border: 0; border-radius: 8px; padding: 10px 16px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+main { max-width: 960px; margin: 0 auto; padding: 16px; }
+.card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.card h2 { margin: 0 0 10px; font-size: 19px; }
+.muted { color: #475569; }
+.fn-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex: 0 0 auto; }
+.fn-input { flex: 1 1 220px; min-width: 0; padding: 9px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; font-family: ui-monospace, monospace; }
+.fn-err { color: #dc2626; font-size: 13px; flex-basis: 100%; margin-left: 22px; min-height: 16px; }
+.chk { white-space: nowrap; }
+.view-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.view-row input, .view-row select { padding: 9px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px; max-width: 100%; }
+.view-row input[type="number"] { width: 120px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+button, .file-label { background: #1e3a8a; color: #fff; border: 0; border-radius: 8px; padding: 9px 14px; font-size: 15px; cursor: pointer; }
+button:hover, .file-label:hover { background: #1d4ed8; }
+.file-label input { display: none; }
+.err { color: #dc2626; min-height: 16px; }
+#plot { width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 8px; cursor: crosshair; display: block; }
+#traceSlider { width: 100%; }
+.trace-line { margin: 4px 0; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #e2e8f0; padding: 6px 10px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+footer { color: #475569; font-size: 14px; padding: 8px 4px 24px; }
+@media (max-width: 480px) {
+  .topbar h1 { font-size: 20px; }
+  .view-row input[type="number"] { width: 100px; }
+  .fn-input { flex-basis: 100%; }
+}
